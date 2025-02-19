@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 function Footer() {
+    const [showEmail, setShowEmail] = useState(false);
+
     return (
         <footer className="footer">
             <div className="footer-content">
@@ -19,10 +21,19 @@ function Footer() {
                 <div className="footer-section">
                     <h3>Kontakt</h3>
                     <ul className="footer-links">
-                        <li>Email: info@sayme.hr</li>
-                        <li>Web: www.sayme.hr</li>
+                        <li>
+                            <button 
+                                className="email-button"
+                                onClick={() => setShowEmail(!showEmail)}
+                            >
+                                {showEmail ? 'info.sayme@gmail.com' : 'Prikaži Email'}
+                            </button>
+                        </li>
                     </ul>
                 </div>
+            </div>
+            <div className="footer-bottom">
+                <p>© 2025 SayMe Hrvatska. Sva prava pridržana.</p>
             </div>
         </footer>
     );
